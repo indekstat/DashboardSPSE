@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  dashboard-spse:
+    build: .
+    container_name: dashboard-spse
+    ports:
+      - "8503:8503"
+    volumes:
+      - .:/app # Mount current directory to allow live reload and database persistence
+      - /app/venv # Prevent overwriting the container's virtual environment
+    restart: unless-stopped
